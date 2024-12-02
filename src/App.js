@@ -12,8 +12,8 @@ const App = () => {
   const [user, setUser] = useState({
     name: 'Batman',
     email: 'helloworld@gmail.com',
-    travelHistory: [
-      {
+    avatar: 'https://static.dc.com/2024-03/bat_hub_hero_bm85_4x3f.png',
+    onGoingJourney: {
         id: 1,
         destinationName : "Eunous",
         type: "MRT",
@@ -22,7 +22,8 @@ const App = () => {
         notifyBefore: 3,
         hasFinished: false,
         finishedAt: null
-      },
+    },
+    travelHistory: [
       {
           id: 2,
           destinationName : "OneNorth",
@@ -45,22 +46,6 @@ const App = () => {
       }
     ]
   })
-
-
-  // useEffect(() =>{
-  //   fetch('\\src\\data.json')
-  //   .then((res) =>{
-  //     if (!res.ok) {
-  //       throw new Error
-  //           (`HTTP error! Status: ${res.status}`);
-  //     }
-  //     return res.json()
-  //   })
-  //   .then((data) =>{
-  //     console.log("data here: " + data)
-  //     setUser(data.user)
-  //   })
-  // }, [])
 
   return (
     <userContext.Provider value={user}>

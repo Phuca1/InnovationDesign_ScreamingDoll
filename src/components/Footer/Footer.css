@@ -1,0 +1,51 @@
+.footer_wrapper{
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+}
+
+.footer_start-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    font-size: 25px;
+    margin: 10px 0;
+}
+
+.start-disabled{
+    background-color: rgb(176, 176, 176);
+}
+
+.start-enabled{
+    background-color: rgb(2, 225, 2);
+}
+
+.footer_button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_home-icon{
+    font-size: 32px;
+}
+
+.footer_profile-icon{
+    font-size: 32px;
+}
+
+.footer_button_highlight{
+    color: rgb(44, 111, 255);
+}
+
+.footer_button_dim{
+    color: rgb(106, 106, 106);
+}
