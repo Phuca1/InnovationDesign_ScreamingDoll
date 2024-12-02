@@ -1,0 +1,88 @@
+.home-top{
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.home-top-left{
+    margin-left: 15px;
+}
+
+.home-top-left_greeting{
+    font-size: larger;
+    font-weight: bold;
+}
+
+.home-top-right{
+    margin-right: 15px;
+}
+
+.avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+
+.main-travel-card{
+    margin-top: 20px;
+}
+.travel-card-title{
+    margin-left: 15px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.main-travel-card-img{
+    width: 100%;
+    height: auto;
+    padding: 0 15px;
+    border-radius: 50px;
+}
+
+.travel-history{
+    background-color: rgb(207, 207, 207);
+    width: 100%;
+    margin-top: 20px;
+}
+
+.travel-history_title{
+    font-weight: 500;
+    margin: 20px 15px;
+}
+
+.travel-history_journey-items-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.journey-item{
+    display: grid;
+    grid-template-columns: 10% 55% 35%;
+    margin: 15px 15px;
+}
+
+.journey-item_location-icon_wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.journey-item_location-icon{
+    border: 2px solid #0480cc;
+    border-radius: 100%;
+    color: white;
+    background-color: #0480cc;
+    vertical-align: middle;
+}
+
+
+
+.journey-item_destination{
+    font-weight: 500;
+}
+
+
+.journey-item_notify-before{
+
+} 

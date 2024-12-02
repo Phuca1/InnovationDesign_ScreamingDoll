@@ -1,49 +1,56 @@
-import React from 'react'
-import { Card } from '../components/Card/Card'
-import { Link } from 'react-router-dom'
+import React, {useContext} from 'react'
+import { userContext } from '../UserContext'
+import { FaLocationDot, FaRegCircle  } from "react-icons/fa6";
+import './Home.css'
 export const Home = () => {
+    function getTimeOfDay() {
+        const currentHour = new Date().getHours();
+    
+        if (currentHour >= 5 && currentHour < 12) {
+            return "morning";
+        } else if (currentHour >= 12 && currentHour < 17) {
+            return "afternoon";
+        } else {
+            return "night";
+        }
+    }
+    
+    const timeOfDay = getTimeOfDay();
 
+    const user = useContext(userContext);
+    console.log(user.travelHistory)
     return (
-        <div className='flex-center-column gap-sm test'>
-            <h1 className='title'> Welcome!</h1>
-            <p> Let's Code Together </p>
-            <p className="text"></p>
+        <div className='flex-center-column gap-sm'>
+            <div className='home-top'>
+                <div className='home-top-left'>
+                    <div>Good {timeOfDay}</div>
+                    <div className='home-top-left_greeting'>Hello, {user.name}</div>
+                </div>
+                <div className='home-top-right'>
+                    <img className='avatar' src='https://static.dc.com/2024-03/bat_hub_hero_bm85_4x3f.png'/>
+                </div>
+            </div>
 
-            <Card >
-                <h4  style={{color : 'var(--color-gray-700)'}}>Progressive Web Apps 🤪</h4>
-                <p className='color-gray-500 my-md font-default'>An application software delivered through web, built using common web technologies including HTML, CSS and JavaScript.  </p>
-                <Link className='color-gray-400 logo'to={{ pathname:'/components',state: { fromDashboard: true }}} > <button className='button-solid-md px-lg font-micro'>Docs</button></Link>
-                
-            </Card>
-            
+            <div className='main-travel-card'>
+                <div className='travel-card-title'>Travel Card</div>
+                <img className='main-travel-card-img' src='https://i.redd.it/8h7wb66ofn0a1.jpg'/>
+            </div>
 
-            <Card >
-                <h4 style={{color : 'var(--color-gray-700)'}}>SEO Friendly 😍</h4>
-                <p className='color-gray-500 my-md font-default'>100% optimized for search engine results ranking based on Lighthouse
-                   </p>
-                   <Link className='color-gray-400 logo'to={{ pathname:'/about',state: { fromDashboard: true }}} > <button className='button-ghost-md px-lg font-micro'>Docs</button></Link>
-                
-            </Card>
-            <Card >
-                <h4 style={{color : 'var(--color-gray-700)'}}>PWA Optimized 📲 </h4>
-                <p className='color-gray-500 my-md font-default'>Fully optimized and ready to install on any devices by clicking the menu bar on your web browser then selecting Install App options
-                   </p>
-                   <Link className='color-gray-400 logo'to={{ pathname:'/about',state: { fromDashboard: true }}} ><button  className='button-outline-md px-lg font-micro'>Docs</button></Link>
+            <div className="travel-history">
+                <p className="travel-history_title">History</p>
+                <div className="travel-history_journey-items-wrapper">
+                    {user.travelHistory.map((item, index) => {
+                        return <div className={`journey-item`} key={item.id}>
+                            <div className='journey-item_location-icon_wrapper'>
+                                {item.hasFinished ? <FaRegCircle /> : <FaLocationDot className='journey-item_location-icon' />}
+                            </div>
+                            <p className='journey-item_destination'>{item.destinationName}</p>
+                            <p className='journey-item_notify-before'>{item.notifyBefore} minutes</p>
+                        </div>
+                    })}
+                </div>
 
-                
-            </Card>
-            <Card >
-                <h4 style={{color : 'var(--color-gray-700)'}}>API Routes 🐶</h4>
-                <p className='color-gray-500 my-md font-default'>Optionally create API endpoints to provide backend functionality.
-                   </p>
-                   <Link className='color-gray-400 logo'to={{ pathname:'/about',state: { fromDashboard: true }}} ><button className='button-solid-md px-lg font-micro'>Docs</button></Link>
-                   
-            </Card>
-            <div className='flex-center-column gap-md h-sm'/>
-
-            
-
-            
+            </div>
         </div>
     )
 }

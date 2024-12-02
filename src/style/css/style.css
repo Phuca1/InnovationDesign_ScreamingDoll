@@ -777,7 +777,7 @@ html[data-theme=light] {
 }
 
 html, body {
-  background: var(--theme-background);
+  background: var(--color-gray-50);
   color: var(--theme-forground);
   font-size: 18px;
   z-index: 0;

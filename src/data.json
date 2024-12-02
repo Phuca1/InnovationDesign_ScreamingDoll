@@ -1,0 +1,29 @@
+{
+    "user":{
+        "name": "Batman",
+        "email": "helloworld@gmail.com",
+        "travelHistory": [
+            {
+                "destinationName" : "Eunous MRT",
+                "type" : "train",
+                "lattitude": 1.3197342,
+                "longitude": 103.9028883,
+                "notifyBefore": 3
+            },
+            {
+                "destinationName" : "OneNorth",
+                "type" : "train",
+                "lattitude": 1.2998113,
+                "longitude": 103.7875947,
+                "notifyBefore": 5
+            },
+            {
+                "destinationName" : "Upp Changi Stn/Opp SUTD",
+                "type" : "bus",
+                "lattitude": 1.2998113,
+                "longitude": 103.7875947,
+                "notifyBefore": 5
+            }
+        ]
+    }
+}
