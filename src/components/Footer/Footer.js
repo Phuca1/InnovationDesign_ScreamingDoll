@@ -18,7 +18,10 @@ export const Footer = (props) => {
                 <div>Home</div>
             </div>
 
-            <div className={`footer_start-button ${user.onGoingJourney?.id != null ? 'start-disabled' : 'start-enabled'}`}>
+            <div 
+                className={`footer_start-button ${user.onGoingJourney?.id != null ? 'start-disabled' : 'start-enabled'}`}
+                onClick={props.handleClickStartButton}
+            >
                 Start
             </div>
             

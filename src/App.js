@@ -13,22 +13,34 @@ const App = () => {
     name: 'Batman',
     email: 'helloworld@gmail.com',
     avatar: 'https://static.dc.com/2024-03/bat_hub_hero_bm85_4x3f.png',
-    onGoingJourney: {
-        id: 1,
-        destinationName : "Eunous",
-        type: "MRT",
-        lattitude: 1.3197342,
-        longitude: 103.9028883,
-        notifyBefore: 3,
-        hasFinished: false,
-        finishedAt: null
-    },
+    // onGoingJourney: {
+    //     id: 1,
+    //     destination : {
+    //       name: "Upp Changi Stn/Opp SUTD",
+    //       address: "690 UPPER CHANGI ROAD EAST UPPER CHANGI MRT STATION (DT34) SINGAPORE 485990",
+    //       latitude: 1.34173977444995,
+    //       longitude: 103.961472788634,
+    //       postal: 485990
+    //     },
+    //     type: "MRT",
+    //     latitude: 1.3197342,
+    //     longitude: 103.9028883,
+    //     notifyBefore: 3,
+    //     hasFinished: false,
+    //     finishedAt: null
+    // },
     travelHistory: [
       {
           id: 2,
-          destinationName : "OneNorth",
+          destination : {
+            name: "RAFFLES PLACE MRT STATION",
+            address: "5 RAFFLES PLACE RAFFLES PLACE MRT STATION SINGAPORE 048618",
+            latitude: 1.28393326234538,
+            longitude: 103.851463066212,
+            postal: "048618"
+          },
           type : "MRT",
-          lattitude: 1.2998113,
+          latitude: 1.2998113,
           longitude: 103.7875947,
           notifyBefore: 5,
           hasFinished: true,
@@ -36,9 +48,15 @@ const App = () => {
       },
       {
         id: 3,
-        destinationName : "Upp Changi Stn/Opp SUTD",
+        destination : {
+          name: "Upp Changi Stn/Opp SUTD",
+          address: "690 UPPER CHANGI ROAD EAST UPPER CHANGI MRT STATION (DT34) SINGAPORE 485990",
+          latitude: 1.34173977444995,
+          longitude: 103.961472788634,
+          postal: "485990"
+        },
         type : "Bus",
-        lattitude: 1.3415522,
+        latitude: 1.3415522,
         longitude: 103.9607823,
         notifyBefore: 0,
         hasFinished: true,

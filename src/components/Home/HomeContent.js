@@ -30,12 +30,12 @@ export const HomeContent = () => {
                 <div className="travel-history_journey-items-wrapper">
                     {
                         user.onGoingJourney != null 
-                        && <div className={`journey-item`} key={item.id}>
+                        && <div className={`journey-item`} key={user.onGoingJourney.id}>
                                 <div className='journey-item_location-icon_wrapper'>
                                    <FaLocationDot className='journey-item_location-icon' />
                                 </div>
-                                <p className='journey-item_destination'>{item.destinationName}</p>
-                                <p className='journey-item_notify-before'>{item.notifyBefore} minutes</p>
+                                <p className='journey-item_destination'>{user.onGoingJourney.destination.name}</p>
+                                <p className='journey-item_notify-before'>{user.onGoingJourney.notifyBefore} minutes</p>
                             </div>
                     }
                     {user.travelHistory.map((item, index) => {
@@ -43,7 +43,7 @@ export const HomeContent = () => {
                             <div className='journey-item_location-icon_wrapper'>
                                 <FaRegCircle />
                             </div>
-                            <p className='journey-item_destination'>{item.destinationName}</p>
+                            <p className='journey-item_destination'>{item.destination.name}</p>
                             <p className='journey-item_notify-before'>{item.notifyBefore} minutes</p>
                         </div>
                     })}

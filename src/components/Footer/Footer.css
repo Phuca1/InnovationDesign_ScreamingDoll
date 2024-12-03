@@ -6,6 +6,7 @@
     left: 0;
     width: 100%;
     background-color: white;
+    border-radius: 30px 30px 0 0;
 }
 
 .footer_start-button{

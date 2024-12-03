@@ -1,0 +1,16 @@
+.journey-setting_notify-before{
+    margin-bottom: 20px;
+    display: flex;
+    align-items: end;
+}
+
+.journey-setting_notify-before_input{
+    width: 60px;
+    margin: 0 10px;
+}
+
+
+#om-minimap-preview{
+    width: 100%;
+    height: 40vh;
+}

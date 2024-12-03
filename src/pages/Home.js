@@ -24,6 +24,10 @@ export const Home = () => {
 
     const user = useContext(userContext);
 
+    const handleClickStartButton = () =>{
+        setIsPannelOpen(true);
+    }
+
     return (
         <div className='flex-center-column gap-sm'>
             <div className='home-top'>
@@ -32,7 +36,7 @@ export const Home = () => {
                     <div className='home-top-left_greeting'>Hello, {user.name}</div>
                 </div>
                 <div className='home-top-right'>
-                    <img className='avatar' src={user.avatar}/>
+                    <img className='avatar' alt='avatar' src={user.avatar}/>
                 </div>
             </div>
 
@@ -42,9 +46,13 @@ export const Home = () => {
                 : <Profile />
             }
 
-            <Footer currentIsHome={currentIsHome} setCurrentIsHome={setCurrentIsHome}/>
+            <Footer 
+                currentIsHome={currentIsHome} 
+                setCurrentIsHome={setCurrentIsHome} 
+                handleClickStartButton={handleClickStartButton} 
+            />
 
-            <JourneySetting />
+            <JourneySetting isPanelOpen={isPannelOpen} setIsPannelOpen={setIsPannelOpen} />
         </div>
     )
 }
