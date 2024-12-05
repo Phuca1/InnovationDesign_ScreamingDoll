@@ -1,8 +1,10 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import { userContext } from '../../UserContext'
 import { FaLocationDot, FaRegCircle  } from "react-icons/fa6";
 import './HomeContent.css'
+
 export const HomeContent = () => {
+
     function getTimeOfDay() {
         const currentHour = new Date().getHours();
     
@@ -18,6 +20,7 @@ export const HomeContent = () => {
     const timeOfDay = getTimeOfDay();
 
     const user = useContext(userContext);
+
     return (
         <React.Fragment>
             <div className='main-travel-card'>

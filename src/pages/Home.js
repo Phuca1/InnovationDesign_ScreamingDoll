@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import { userContext } from '../UserContext'
 import './Home.css'
 import { HomeContent } from '../components/Home/HomeContent';
@@ -7,7 +7,7 @@ import { Footer } from '../components/Footer/Footer';
 import { JourneySetting } from '../components/Panel/JourneySetting';
 export const Home = () => {
     const [currentIsHome, setCurrentIsHome] = useState(true);
-    const [isPannelOpen, setIsPannelOpen] = useState(false);
+    const [isJourneyPannelOpen, setIsJourneyPannelOpen] = useState(false);
 
     function getTimeOfDay() {
         const currentHour = new Date().getHours();
@@ -20,12 +20,18 @@ export const Home = () => {
             return "night";
         }
     }
+
+    useEffect(() =>{
+        setCurrentIsHome(true);
+        setIsJourneyPannelOpen(false);
+    }, [])
+
     const timeOfDay = getTimeOfDay();
 
     const user = useContext(userContext);
 
     const handleClickStartButton = () =>{
-        setIsPannelOpen(true);
+        setIsJourneyPannelOpen(true);
     }
 
     return (
@@ -52,7 +58,7 @@ export const Home = () => {
                 handleClickStartButton={handleClickStartButton} 
             />
 
-            <JourneySetting isPanelOpen={isPannelOpen} setIsPannelOpen={setIsPannelOpen} />
+            <JourneySetting isPanelOpen={isJourneyPannelOpen} setIsPanelOpen={setIsJourneyPannelOpen} />
         </div>
     )
 }

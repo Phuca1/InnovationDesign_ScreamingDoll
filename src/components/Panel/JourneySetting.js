@@ -24,7 +24,7 @@ export const JourneySetting = (props) =>{
     const [destinationOptions, setDestinationOptions] = useState([])
 
     const handleSubmit = () =>{
-        props.setIsPannelOpen(false);
+        props.setIsPanelOpen(false);
     }
 
     function fetchSearchLocation(value){
@@ -60,7 +60,7 @@ export const JourneySetting = (props) =>{
             title="Journey setting"
             placement="right"
             open={props.isPanelOpen}
-            onClose={() => props.setIsPannelOpen(false)}
+            onClose={() => props.setIsPanelOpen(false)}
         >
             <div style={{ marginBottom: "20px" }}>
                 <label>Destination</label>
