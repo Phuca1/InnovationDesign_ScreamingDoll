@@ -5,7 +5,7 @@ import { MdHomeFilled } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 
 export const Footer = (props) => {
-    const user = useContext(userContext);
+    const [user, setUser] = useContext(userContext);
     
 
     return(

@@ -28,7 +28,7 @@ export const Home = () => {
 
     const timeOfDay = getTimeOfDay();
 
-    const user = useContext(userContext);
+    const [user, setUser] = useContext(userContext);
 
     const handleClickStartButton = () =>{
         setIsJourneyPannelOpen(true);

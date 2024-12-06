@@ -9,9 +9,8 @@ import { SoundLib } from '../SoundLib/SoundLib';
 export const Profile = () =>{
     const [isSoundLibPannelOpen, setIsSoundLibPannelOpen] = useState(false);
 
-    const user = useContext(userContext);
+    const [user, setUser] = useContext(userContext);
 
-    
     function handleOpenSoundLib(){
         setIsSoundLibPannelOpen(true);
     }

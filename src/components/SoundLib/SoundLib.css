@@ -1,0 +1,84 @@
+.profile_sound-management_container {
+    padding: 20px;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.sound-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    background-color: #ffffff;
+    transition: box-shadow 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+
+.sound-item:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.sound-item-selected {
+    border-color: #8fc8fe;
+    background-color: #e6f7ff;
+}
+
+.play-button {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #8fc8fe;
+    flex-shrink: 0;
+}
+
+.sound-info {
+    flex: 1;
+}
+
+.sound-info span {
+    display: block;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.upload-button {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 6px;
+    height: 40px;
+    font-weight: 500;
+    background-color: #ffffff;
+    border: 1px dashed #d9d9d9;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.upload-button:hover {
+    border-color: #1890ff;
+    background-color: #f5faff;
+}
+
+.save-button {
+    margin-top: 20px;
+    width: 80%;
+    height: 40px;
+    font-weight: 500;
+    background-color: #1890ff;
+    color: #ffffff;
+    border-radius: 6px;
+    text-align: center;
+    display: block;
+    bottom: 20px;
+    position: fixed;
+}
+
+.save-button .ant-btn-icon{
+   margin-right: 3px;
+}

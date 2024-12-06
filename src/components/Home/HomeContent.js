@@ -19,7 +19,7 @@ export const HomeContent = () => {
     
     const timeOfDay = getTimeOfDay();
 
-    const user = useContext(userContext);
+    const [user, setUser] = useContext(userContext);
 
     return (
         <React.Fragment>

@@ -1,53 +1,54 @@
-import React, {useState} from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { Select, Drawer, Input, Switch, Slider, Button } from 'antd';
 import './JourneySetting.css';
+import { userContext } from "../../UserContext";
 
 let timeout;
-function debounce(fn, input, wait){
-    return function(){
-        if(timeout) {
+function debounce(fn, input, wait) {
+    return function () {
+        if (timeout) {
             console.log("no timeout")
             clearTimeout(timeout);
         }
-        timeout = setTimeout(function(){
+        timeout = setTimeout(function () {
             console.log("start execution");
             fn(input);
         }, wait);
     };
 }
 
-export const JourneySetting = (props) =>{
+export const JourneySetting = (props) => {
     const [selectedDestination, setSelectedDestination] = useState(null);
     const [numberInput, setNumberInput] = useState("");
-    const [toggle, setToggle] = useState(false);
+    const [vibrationLevel, setVibrationLevel] = useState(50);
     const [volume, setVolume] = useState(50);
     const [destinationOptions, setDestinationOptions] = useState([])
 
-    const handleSubmit = () =>{
+    const handleSubmit = () => {
         props.setIsPanelOpen(false);
     }
 
-    function fetchSearchLocation(value){
+    function fetchSearchLocation(value) {
         console.log("HERE" + value);
-        if(!value) return;
+        if (!value) return;
         fetch(`https://www.onemap.gov.sg/api/common/elastic/search?searchVal=${value}&returnGeom=Y&getAddrDetails=Y`)
             .then((res) => res.json())
-            .then((data) =>{
+            .then((data) => {
                 console.log(data);
                 setDestinationOptions(data.results.map(item => {
                     return {
-                        value : item.ADDRESS,
-                        label : item.SEARCHVAL,
-                        longitude : item.LONGITUDE,
-                        latitude : item.LATITUDE,
+                        value: item.ADDRESS,
+                        label: item.SEARCHVAL,
+                        longitude: item.LONGITUDE,
+                        latitude: item.LATITUDE,
                         postal: item.POSTAL
                     }
                 }))
             });
     }
 
-    function chooseDestinationHandle(value){
-        
+    function chooseDestinationHandle(value) {
+
         const selectedDestination = destinationOptions.find(item => item.value = value);
         setSelectedDestination(selectedDestination);
         document.querySelector('#om-minimap-preview')
@@ -55,7 +56,7 @@ export const JourneySetting = (props) =>{
 
     }
 
-    return(
+    return (
         <Drawer
             title="Journey setting"
             placement="right"
@@ -69,22 +70,22 @@ export const JourneySetting = (props) =>{
                     placeholder="Search destination"
                     style={{ width: "100%", marginTop: "10px" }}
                     onChange={(value) => chooseDestinationHandle(value)}
-                    onKeyUp={function(element){
+                    onKeyUp={function (element) {
                         debounce(fetchSearchLocation, element.target.value, 300)()
                     }}
                     options={destinationOptions}
-                    onSearch={() =>{}}
+                    onSearch={() => { }}
                 />
                 <div className="map-wrapper">
-                <iframe 
-                    title="map"
-                    id="om-minimap-preview" 
-                    src="https://www.onemap.gov.sg/amm/amm.html"
-                    scrolling="no" 
-                    frameborder="0" 
-                    allowfullscreen="allowfullscreen">
+                    <iframe
+                        title="map"
+                        id="om-minimap-preview"
+                        src="https://www.onemap.gov.sg/amm/amm.html"
+                        scrolling="no"
+                        frameborder="0"
+                        allowfullscreen="allowfullscreen">
 
-                </iframe>
+                    </iframe>
                 </div>
             </div>
 
@@ -102,29 +103,30 @@ export const JourneySetting = (props) =>{
                 <p>minutes</p>
             </div>
 
-            {/* Toggle Switch */}
+            {/* Vibration */}
             <div style={{ marginBottom: "20px" }}>
-                <label>Vibration</label>
+                <label>Vibration level</label>
                 <div style={{ marginTop: "10px" }}>
-                    <Switch
-                        checked={toggle}
-                        onChange={(checked) => setToggle(checked)}
+                    <Slider
+                        value={vibrationLevel}
+                        onChange={(value) => setVibrationLevel(value)}
+                        max={100}
                     />
-                    <span style={{ marginLeft: "10px" }}>{toggle ? "On" : "Off"}</span>
+                    <div>Volume Level: {volume}</div>
                 </div>
             </div>
 
             {/* Volume Slider */}
             <div style={{ marginBottom: "20px" }}>
-            <label>Volume</label>
-            <div style={{ marginTop: "10px" }}>
-                <Slider
-                value={volume}
-                onChange={(value) => setVolume(value)}
-                max={100}
-                />
-                <div>Volume Level: {volume}</div>
-            </div>
+                <label>Volume</label>
+                <div style={{ marginTop: "10px" }}>
+                    <Slider
+                        value={volume}
+                        onChange={(value) => setVolume(value)}
+                        max={100}
+                    />
+                    <div>Volume Level: {volume}</div>
+                </div>
             </div>
 
             {/* Submit Button */}
