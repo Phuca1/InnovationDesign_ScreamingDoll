@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { solarize } from './asset-icons';
 
 export const Theme = (props) => {
-    const [ isDark, setDark ] = useState(true);
+    const [ isDark, setDark ] = useState(false);
     
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.setAttribute('data-theme', 'dark')
@@ -12,7 +12,7 @@ export const Theme = (props) => {
         if(isDark? localStorage.theme = 'light' : localStorage.theme = 'dark') setDark(!isDark)
     }
     return (
-        <button onClick={toggleTheme} {...props}>
+        <button onClick={() => {}} {...props}>
             {solarize}
         </button>
     )

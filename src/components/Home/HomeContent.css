@@ -1,5 +1,6 @@
 .main-travel-card{
     margin-top: 20px;
+    width: 90%;
 }
 .travel-card-title{
     margin-left: 15px;
@@ -8,14 +9,16 @@
 }
 
 .main-travel-card-img{
+    /* width: 100%; */
+    height: 182px;
     width: 100%;
-    height: auto;
-    padding: 0 15px;
+    /* line-height: 50px; */
+    /* padding: 0 15px; */
     border-radius: 50px;
 }
 
 .travel-history{
-    background-color: rgb(207, 207, 207);
+    background-color: rgb(186, 237, 255);
     width: 100%;
     margin-top: 20px;
 }

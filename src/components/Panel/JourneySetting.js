@@ -23,8 +23,27 @@ export const JourneySetting = (props) => {
     const [vibrationLevel, setVibrationLevel] = useState(50);
     const [volume, setVolume] = useState(50);
     const [destinationOptions, setDestinationOptions] = useState([])
+    const [user, setUser] = useContext(userContext);
+
 
     const handleSubmit = () => {
+        setUser((prev) =>({
+            ...prev,
+            onGoingJourney:{
+                id: Math.floor(Math.random() * 1000),
+                destination : {
+                  name: selectedDestination.label,
+                  address: selectedDestination.value,
+                  latitude: selectedDestination.latitude,
+                  longitude: selectedDestination.longitude,
+                  postal: selectedDestination.postal
+                },
+                type: selectedDestination.value.includes('MRT') ? "MRT" : "BUS",
+                notifyBefore: numberInput,
+                hasFinished: false,
+                finishedAt: null
+            },
+        }))
         props.setIsPanelOpen(false);
     }
 
@@ -50,6 +69,7 @@ export const JourneySetting = (props) => {
     function chooseDestinationHandle(value) {
 
         const selectedDestination = destinationOptions.find(item => item.value = value);
+        console.log("CHoosed:", selectedDestination);
         setSelectedDestination(selectedDestination);
         document.querySelector('#om-minimap-preview')
             .setAttribute('src', `https://www.onemap.gov.sg/amm/amm.html?marker=latLng:${selectedDestination.latitude},${selectedDestination.longitude}`);

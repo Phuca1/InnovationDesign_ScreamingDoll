@@ -12,28 +12,26 @@ const App = () => {
   const [user, setUser] = useState({
     name: 'Batman',
     email: 'helloworld@gmail.com',
-    avatar: 'https://static.dc.com/2024-03/bat_hub_hero_bm85_4x3f.png',
+    avatar: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT_G-KNolRrea45aEIyGJHFWZd2xe4t29E2i20GMf7vAlRTwg1SS-QV-VQ5vzxkWCpFL1_mDNehSXTp9eFUAzcb2m3MP5XNt4E37YbROAIpw17w9EjYgh4aPp_Q&usqp=CAc',
     currentSound: {
       id: 1,
       name: 'guitar 1',
       src: "https://cdn.pixabay.com/audio/2024/09/29/audio_5c67567261.mp3",
     },
-    // onGoingJourney: {
-    //     id: 1,
-    //     destination : {
-    //       name: "Upp Changi Stn/Opp SUTD",
-    //       address: "690 UPPER CHANGI ROAD EAST UPPER CHANGI MRT STATION (DT34) SINGAPORE 485990",
-    //       latitude: 1.34173977444995,
-    //       longitude: 103.961472788634,
-    //       postal: 485990
-    //     },
-    //     type: "MRT",
-    //     latitude: 1.3197342,
-    //     longitude: 103.9028883,
-    //     notifyBefore: 3,
-    //     hasFinished: false,
-    //     finishedAt: null
-    // },
+    onGoingJourney: {
+        id: 1,
+        destination : {
+          name: "Upp Changi Stn/Opp SUTD",
+          address: "690 UPPER CHANGI ROAD EAST UPPER CHANGI MRT STATION (DT34) SINGAPORE 485990",
+          latitude: 1.34173977444995,
+          longitude: 103.961472788634,
+          postal: 485990
+        },
+        type: "MRT",
+        notifyBefore: 3,
+        hasFinished: false,
+        finishedAt: null
+    },
     travelHistory: [
       {
         id: 2,
@@ -45,8 +43,6 @@ const App = () => {
           postal: "048618"
         },
         type: "MRT",
-        latitude: 1.2998113,
-        longitude: 103.7875947,
         notifyBefore: 5,
         hasFinished: true,
         finishedAt: new Date().getDate() - 10
@@ -61,8 +57,6 @@ const App = () => {
           postal: "485990"
         },
         type: "Bus",
-        latitude: 1.3415522,
-        longitude: 103.9607823,
         notifyBefore: 0,
         hasFinished: true,
         finishedAt: new Date().getDate() - 5

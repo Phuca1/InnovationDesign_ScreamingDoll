@@ -9,7 +9,7 @@ export const NavSub = ( {history}) => {
         <>
         <div className='flex-space-between-row p-md fixed-top nav-bg'>
             <button >{arrow_left}</button>
-            <Link className='color-gray-400 logo' to={{ pathname:'/',state: { fromDashboard: true }}}> {logo}</Link>
+            <Link className='logo' to={{ pathname:'/',state: { fromDashboard: true }}}> {logo}</Link>
             <DarkToggle />
         </div>
         </>

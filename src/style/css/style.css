@@ -576,6 +576,10 @@ button {
   background: rgba(var(--theme-rgb-accent), 1);
 }
 
+.logo{
+  color: rgb(41 199 255);
+}
+
 .card {
   border: 1px solid;
   border-color: var(--color-gray-300);
